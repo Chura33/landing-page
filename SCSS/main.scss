@@ -9,15 +9,32 @@
 //     height: 5000px;
 // }
 
+header{
+  transition: .4s;
+}
+
 .container{
      max-width: 1600px; 
       padding-left:128px;
       padding-right:128px;
       margin:auto; 
       width:100%;
+      align-items:center;
+      @media(max-width:1024px){
+        padding-left: 64px;
+        padding-right: 64px;
+      }
+
+      @media(max-width:767px){
+       padding-left:64px;
+       padding-right:64px;
+      }
 }
 
 .button{
+  border:none;
+  outline:none;
+  appearance:none;
   display:inline-block;
   color:#fff;
   background-color:#ff9fdb;
@@ -26,6 +43,11 @@
   text-decoration:none;
   text-transform:uppercase;
   font-weight:700;
+  cursor:pointer;
+  font-size:20px;
+  @media(max-width:767px){
+    font-size:18px;
+  }
 }
 
 section{
@@ -70,15 +92,32 @@ header{
         display: grid;
         grid-gap:16px;
         grid-template-columns: repeat(4,auto);
+        
+        @media(max-width:767px){
+          display: none;  
+        }
 
         a{
           color:inherit;
           font-size:20px;
           text-decoration:none;
+          padding:5px;
+          transition:.4s;
+          &:hover{
+            background-color: #585066;
+          }
         }
       }
     }
+    &.is-scrolling{
+      background-color: #12002f;
+      .container{
+        padding-top:16px;
+        padding-bottom:16px;
+      }
+    }
 }
+
 
 main{
   section.banner{
@@ -108,6 +147,10 @@ main{
       z-index:1;
       h1{
         font-size:72px;
+        margin-bottom: 16px;
+        @media(max-width:767px){
+          font-size: 32px;
+        }
       }
         span{
           color:#ff9fdb;
@@ -118,6 +161,9 @@ main{
         font-size: 36px;
         font-weight: 400;
         margin-bottom: 32px;
+        @media(max-width:767px){
+          font-size:20px;
+        }
       }
       a{
         text-decoration: none;
@@ -127,6 +173,7 @@ main{
 
   .services{
     background-color: #eee;
+   
     .container{
       padding-top:64px;
       padding-bottom:64px;
@@ -134,6 +181,13 @@ main{
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           grid-gap:16px;
+          @media(max-width:1024px){
+            grid-template-columns: repeat(2,1fr);
+          }
+
+          @media(max-width:767px){
+            grid-template-columns: repeat(1, 1fr);
+          }
             .service{
               background-color: white;
               border-radius:16px;
@@ -160,6 +214,123 @@ main{
     }
   }
   
+  .projects{     
+    .projects-grid{
+      display: grid;
+      grid-template-columns:repeat(3, 1fr);
+      grid-gap:16px;
+      margin-bottom: 16px;
+      @media(max-width:768px){
+        grid-template-columns: repeat(2,1fr);
+      }
+      @media(max-width:767px){
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
 
+    .project{
+      // padding:16px;
+      background-image: url("../images/project-img.jpg");
+      border-radius:16px;
+      overflow: hidden;
+
+      &:nth-child(2){
+        background-image: url("../images/service-3.jpg");
+      }
+
+      .content{
+        opacity:0;
+        padding:16px;
+        background-color: rgba(64,39,68,0.8);
+        color:white;
+        transition: opacity 0.4s;
+
+        h3{
+          font-size:32px;
+          margin-bottom:16px;
+          @media(max-width:1024px){
+            font-size: 28px;
+          }
+        }
+
+        p{
+          font-size:18px;
+          margin-bottom:16px;
+          @media(max-width:1024px){
+            font-size:16px;
+          }
+        }
+      }
+      &:hover{
+        .content{
+          opacity:1;
+        }
+      }
+    }
+    .center{
+      text-align:center;
+    }
+  }
+  .contact{
+    background: #9b75d7;
+    color:white;
+  }
+  .container{
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    h2{
+      color:white;
+    }
+
+    form{
+      display: block;
+      max-width: 680px;
+      margin:0 auto;
+    
+    .form-grid{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      grid-gap:16px;
+      margin-bottom:16px;
+      @media(max-width:767px){
+        grid-template-columns: repeat(1, 1fr);
+      }
+      
+      .form-element, .form-area{
+        display: block;
+        width:100%;
+        background-color: #fff;
+        outline:none;
+        border: none;
+        appearance: none;
+        border-radius:8px;
+        font-size:20px;
+        padding: 16px;
+        color:#313131;
+
+        &::placeholder{
+          color:#aaa;
+        }
+      }
+
+      textarea{
+        grid-column:span 2;  
+        @media(max-width:767px){
+          grid-column: span 1;
+        }
+      }
+    }
+    .right-align{
+      text-align:right;
+    }
+  }
+}
+
+@media(max-width:767px){
+  .hide-mobile{
+    display:none;
+  }
+}
 }
   
