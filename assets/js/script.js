@@ -8,4 +8,9 @@ window.onload = function(){
             document.querySelector('header').classList.remove("is-scrolling");
         }
     })   
+
+    const menu_btn = document.querySelector('.hamburger');
+    menu_btn.addEventListener('click',()=>{
+        menu_btn.classList.toggle("is-active");
+    })
 }
